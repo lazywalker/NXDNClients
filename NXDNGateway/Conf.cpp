@@ -187,6 +187,8 @@ bool CConf::read()
 			  m_logFilePath = value;
 		  else if (::strcmp(key, "FileRoot") == 0)
 			  m_logFileRoot = value;
+			else if (::strcmp(key, "UTC") == 0)
+			  m_logUTC = ::atoi(value) == 1;
 	  } else if (section == SECTION_APRS_FI) {
 		  if (::strcmp(key, "Enable") == 0)
 			  m_aprsEnabled = ::atoi(value) == 1;
@@ -376,6 +378,11 @@ std::string CConf::getAPRSDescription() const
 std::string CConf::getLogFileRoot() const
 {
   return m_logFileRoot;
+}
+
+bool CConf::getLogUTC() const
+{
+  return m_logUTC;
 }
 
 unsigned int CConf::getNetworkPort() const

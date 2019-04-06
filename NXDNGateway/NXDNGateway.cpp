@@ -160,7 +160,7 @@ void CNXDNGateway::run()
 	}
 #endif
 
-	ret = ::LogInitialise(m_conf.getLogFilePath(), m_conf.getLogFileRoot(), 1U, 1U);
+	ret = ::LogInitialise(m_conf.getLogFilePath(), m_conf.getLogFileRoot(), 1U, 1U, m_conf.getLogUTC());
 	if (!ret) {
 		::fprintf(stderr, "NXDNGateway: unable to open the log file\n");
 		return;
